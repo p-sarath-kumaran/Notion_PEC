@@ -1,0 +1,699 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>PEC HACKS 2.0</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="15c35e94-7ad8-8004-b026-d8bfc3314e90" class="page serif"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_11.jpg" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="img1.png"/></div><h1 class="page-title">PEC HACKS 2.0</h1><p class="page-description"></p></header><div class="page-body"><h3 id="15c35e94-7ad8-81eb-ba29-f69c0c417193" class=""><mark class="highlight-gray"><mark class="highlight-default_background">36 Hours Hackathon</mark></mark></h3><h3 id="15c35e94-7ad8-8156-ae4f-cc1aa892111a" class=""><mark class="highlight-gray">December 28 , 2024 → December 29 , 2024</mark></h3><h3 id="15c35e94-7ad8-8103-83ae-d2b78e990525" class="">@Panimalar Engineering College , Chennai</h3><figure id="15c35e94-7ad8-8130-811b-d63edb2beae8"><div class="source"><a href="https://maps.app.goo.gl/7LSfcuQTWQ7TKATy7">https://maps.app.goo.gl/7LSfcuQTWQ7TKATy7</a></div></figure><hr id="15c35e94-7ad8-81e9-a192-d2fdd8d08b1d"/><p id="15c35e94-7ad8-81c3-af7f-e4130d58273b" class="">
+</p><p id="15c35e94-7ad8-81a3-9d98-d3e04d6c3f3d" class=""><strong>Welcome to the much-anticipated Hackathon 2024!</strong> We are thrilled to host a diverse group of industry experts and passionate tech enthusiasts hailing from various corners of the globe. This is your opportunity to delve deep into the fascinating and ever-evolving future of technology. </p><h2 id="15c35e94-7ad8-8158-9970-e46b1fe8de73" class="block-color-blue_background"> Agenda</h2><div id="15c35e94-7ad8-818c-93df-e4d1f5243531" class="column-list"><div id="15c35e94-7ad8-810e-81d3-dc92ac78cdb0" style="width:52.17391304347825%" class="column"><h2 id="15c35e94-7ad8-81a3-bbf8-d76303a90e9b" class="block-color-orange">Day 1 - December 28th</h2><p id="15c35e94-7ad8-814e-872c-f436041a42d7" class="">
+</p><hr id="15c35e94-7ad8-8199-a31a-e9986a5664e1"/><figure id="15c35e94-7ad8-81a4-a4c1-fa93c2170e45" class="link-to-page"><a href="https://www.notion.so/Registration-Opens-15c35e947ad881a4a4c1fa93c2170e45?pvs=21"><img class="icon" src="https://www.notion.so/icons/paste_gray.svg"/>Registration Opens</a></figure><p id="15c35e94-7ad8-811f-8052-c8c459a2116a" class="">12:00 PM - 1:00 PM</p><hr id="15c35e94-7ad8-813e-ab19-ed85a27d353f"/><figure id="15c35e94-7ad8-818e-b72e-d52d203c3945" class="link-to-page"><a href="https://www.notion.so/Opening-Ceremony-15c35e947ad8818eb72ed52d203c3945?pvs=21"><img class="icon" src="https://www.notion.so/icons/music-artist_gray.svg"/>Opening Ceremony</a></figure><p id="15c35e94-7ad8-819c-b1bc-e53eda6ed9ea" class="">1:00 PM - 1:30 PM</p><hr id="15c35e94-7ad8-8149-b036-ec22f81dac17"/><figure id="15c35e94-7ad8-81d7-85b8-c1088cb6c796" class="link-to-page"><a href="https://www.notion.so/Team-Formation-15c35e947ad881d785b8c1088cb6c796?pvs=21"><img class="icon" src="https://www.notion.so/icons/meeting_gray.svg"/>Team Formation</a></figure><p id="15c35e94-7ad8-813d-b7d5-d448f7280f67" class="">1:30 PM - 2:00 PM</p><hr id="15c35e94-7ad8-8193-b136-eb04eb0d1de3"/><figure id="15c35e94-7ad8-81e8-a905-e388522e623a" class="link-to-page"><a href="https://www.notion.so/Idea-Pitching-Finalization-15c35e947ad881e8a905e388522e623a?pvs=21"><img class="icon" src="https://www.notion.so/icons/dialogue_gray.svg"/>Idea Pitching &amp; Finalization</a></figure><p id="15c35e94-7ad8-8195-9498-de35b96ea7b8" class="">2:00 PM - 3:00 PM</p><hr id="15c35e94-7ad8-81ec-a122-ece17259246c"/><figure id="15c35e94-7ad8-8191-aa25-c298e0b84453" class="link-to-page"><a href="https://www.notion.so/Start-Hacking-15c35e947ad88191aa25c298e0b84453?pvs=21"><img class="icon" src="https://www.notion.so/icons/laptop_gray.svg"/>Start Hacking</a></figure><p id="15c35e94-7ad8-816d-9eb1-d9af888f0961" class="">3:00 PM - 6:00 PM</p><hr id="15c35e94-7ad8-812e-bd38-f18983084473"/><figure id="15c35e94-7ad8-815e-8b2b-ddd01b1d5937" class="link-to-page"><a href="https://www.notion.so/Dinner-15c35e947ad8815e8b2bddd01b1d5937?pvs=21"><img class="icon" src="https://www.notion.so/icons/dining_gray.svg"/>Dinner</a></figure><p id="15c35e94-7ad8-8169-a48c-e88d3739f2df" class="">6:00 PM - 7:00 PM</p><hr id="15c35e94-7ad8-815c-99bd-eb6dbcaa955a"/><figure id="15c35e94-7ad8-81e4-9354-fe77323aad4c" class="link-to-page"><a href="https://www.notion.so/Check-in-15c35e947ad881e49354fe77323aad4c?pvs=21"><img class="icon" src="https://www.notion.so/icons/following_gray.svg"/>Check-in</a></figure><p id="15c35e94-7ad8-8183-8850-d65ae7ddc4b6" class="">9:00 PM - 10:00 PM</p><hr id="15c35e94-7ad8-81db-88e8-c9eab897bbe9"/><figure id="15c35e94-7ad8-8138-bf49-d454641cbf20" class="link-to-page"><a href="https://www.notion.so/Overnight-Hacking-15c35e947ad88138bf49d454641cbf20?pvs=21"><img class="icon" src="https://www.notion.so/icons/moon_gray.svg"/>Overnight Hacking</a></figure><p id="15c35e94-7ad8-8120-9c95-fc0e641daea5" class="">10:00 PM Onwards</p><hr id="15c35e94-7ad8-812b-829c-c26b17d7a266"/></div><div id="15c35e94-7ad8-814b-87bd-d22af3d21344" style="width:47.826086956521735%" class="column"><h2 id="15c35e94-7ad8-8159-be9e-ecf5eda45fc2" class="block-color-orange">December 29th - Day 2</h2><p id="15c35e94-7ad8-81e1-a8b6-fbb60f70bb91" class="">
+</p><hr id="15c35e94-7ad8-81e4-9c71-f7b25a59da7c"/><figure id="15c35e94-7ad8-8182-8974-d05fe19fda0e" class="link-to-page"><a href="https://www.notion.so/Breakfast-15c35e947ad881828974d05fe19fda0e?pvs=21"><img class="icon" src="https://www.notion.so/icons/bowl-food_gray.svg"/>Breakfast</a></figure><p id="15c35e94-7ad8-81b2-ab7f-c71825de7975" class="">7:00 AM</p><hr id="15c35e94-7ad8-8164-a6bf-f8b1af914ce8"/><figure id="15c35e94-7ad8-81a8-875e-f5cf17f826c0" class="link-to-page"><a href="https://www.notion.so/Hacking-Ends-15c35e947ad881a8875ef5cf17f826c0?pvs=21"><img class="icon" src="https://www.notion.so/icons/code_gray.svg"/>Hacking Ends</a></figure><p id="15c35e94-7ad8-8108-9078-d5c8b6cf6221" class="">12:00 PM - 1:00 PM </p><hr id="15c35e94-7ad8-8153-abb1-dc05d8bd81d5"/><figure id="15c35e94-7ad8-81d3-9e97-ea12125c2f5c" class="link-to-page"><a href="https://www.notion.so/Lunch-Prep-15c35e947ad881d39e97ea12125c2f5c?pvs=21"><img class="icon" src="https://www.notion.so/icons/meeting_gray.svg"/>Lunch &amp; Prep</a></figure><p id="15c35e94-7ad8-8113-92cb-e78058b27afd" class="">1:30 PM - 2:00 PM </p><hr id="15c35e94-7ad8-813b-9b5a-fb73ea192966"/><figure id="15c35e94-7ad8-8100-a6b8-c3040c662b26" class="link-to-page"><a href="https://www.notion.so/Project-Demos-15c35e947ad88100a6b8c3040c662b26?pvs=21"><img class="icon" src="https://www.notion.so/icons/slideshow-play_gray.svg"/>Project Demos</a></figure><p id="15c35e94-7ad8-81a2-9665-ccd3034f65cf" class="">2:00 PM - 4:00 PM </p><hr id="15c35e94-7ad8-81d8-9c2c-e6a44b300a83"/><figure id="15c35e94-7ad8-8155-a1f9-c03a7e825a5a" class="link-to-page"><a href="https://www.notion.so/Judging-Deliberation-15c35e947ad88155a1f9c03a7e825a5a?pvs=21"><img class="icon" src="https://www.notion.so/icons/gavel_gray.svg"/>Judging Deliberation</a></figure><p id="15c35e94-7ad8-8162-b658-cd0bd401aa53" class="">4:00 PM - 4:30 PM </p><hr id="15c35e94-7ad8-81e7-9302-c435bbd5efbb"/><figure id="15c35e94-7ad8-81a0-b5c6-cd7953f305c8" class="link-to-page"><a href="https://www.notion.so/Awards-Ceremony-15c35e947ad881a0b5c6cd7953f305c8?pvs=21"><img class="icon" src="https://www.notion.so/icons/trophy_gray.svg"/>Awards Ceremony</a></figure><p id="15c35e94-7ad8-8141-a668-f70fd3f2a385" class="">4:30 PM - 5:00 PM </p><hr id="15c35e94-7ad8-816a-abc5-c9c79ff3ada6"/><figure id="15c35e94-7ad8-8173-9590-dd0989458073" class="link-to-page"><a href="https://www.notion.so/Closing-Remarks-15c35e947ad881739590dd0989458073?pvs=21"><img class="icon" src="https://www.notion.so/icons/history_gray.svg"/>Closing Remarks</a></figure><p id="15c35e94-7ad8-8128-8477-dfcf768574bd" class="">5:00 PM - 5:30 PM </p><hr id="15c35e94-7ad8-81b3-9cc0-e8e9f911df4d"/><figure id="15c35e94-7ad8-81d1-b304-cd24907a19e9" class="link-to-page"><a href="https://www.notion.so/Networking-15c35e947ad881d1b304cd24907a19e9?pvs=21"><img class="icon" src="https://www.notion.so/icons/conversation_gray.svg"/>Networking</a></figure><p id="15c35e94-7ad8-811f-b2db-ff35c217c4f9" class="">5:30 PM Onwards </p><hr id="15c35e94-7ad8-814c-b2fd-d336b6ef694d"/></div></div><h2 id="15c35e94-7ad8-8104-9cf4-cd4a2bb82107" class="block-color-blue_background">Judges</h2><div id="15e35e94-7ad8-802f-89b2-e1a91a5c316e" class="column-list"><div id="15e35e94-7ad8-80f8-b6f1-feb75afd6c1b" style="width:18.75%" class="column"><figure id="15e35e94-7ad8-8017-a89a-de23a92b7080" class="image"><a href="Judge_1.jpg"><img style="width:400px" src="Judge_1.jpg"/></a></figure></div><div id="15e35e94-7ad8-8063-9899-cba947b5e0a9" style="width:31.25%" class="column"><h3 id="15e35e94-7ad8-80c4-a58d-cc6b4b34a37d" class="">Anish Mathew Sajeev</h3><p id="15e35e94-7ad8-80d8-988f-d16ad4092b6d" class="">CEO &amp; Founder</p><p id="15e35e94-7ad8-8068-a326-f323dee31f52" class="">Susan Future Technologies Pvt. Ltd</p></div><div id="15e35e94-7ad8-8074-81ed-ec1a1d9c203f" style="width:18.75%" class="column"><figure id="df30c7eb-80be-48d9-b969-c84a1eefb466" class="image" style="text-align:left"><a href="judge_san.jpg"><img style="width:400px" src="judge_san.jpg"/></a></figure><p id="15e35e94-7ad8-80bf-bd3b-d4d1b0130ef4" class="">
+</p></div><div id="15e35e94-7ad8-80b1-8064-e7420643b297" style="width:31.25%" class="column"><h3 id="e7f64b76-f5f7-4af0-81e8-c4eef48d63a4" class="">Santhosh Chaluvadi</h3><p id="ebccb3c7-2749-4968-9ddb-c3817aa695e2" class="">Founder &amp; CEO</p><p id="15e35e94-7ad8-8053-a420-d11ae79ce53b" class=""> Supraja Technologies</p></div></div><div id="15e35e94-7ad8-8095-8c54-dd4983a97f66" class="column-list"><div id="dc5d34b6-67f9-4dc5-becf-768b2a96cb13" style="width:18.75%" class="column"><figure id="27bd75fd-a2eb-4c59-b18d-1d6d5e35a15c" class="image"><a href="Aravindh_Photo.jpg"><img style="width:222.97500610351562px" src="Aravindh_Photo.jpg"/></a></figure></div><div id="5ac66825-2b2a-4fca-820e-8355306cff0c" style="width:31.25%" class="column"><h3 id="9c5ef789-baba-4392-b43d-814d5b62dd80" class="">Aravindh Gunasekaran</h3><p id="8f5a8793-1111-48bf-9c7a-ebcabfd129c3" class=""> CEO &amp; Founder</p><p id="15e35e94-7ad8-807c-9342-d55c8b7dfc24" class="">iProAT Solutions Private Limited</p><p id="16035e94-7ad8-80cb-b17a-d15bb69d333f" class="">
+</p></div><div id="a5d9631b-36be-43ab-aa00-092e4f275112" style="width:18.75%" class="column"><figure id="41523e1d-19c3-4366-b592-c04e6aa7d16b" class="image"><a href="Bharani_Photo2.jpg"><img style="width:222.97500610351562px" src="Bharani_Photo2.jpg"/></a></figure></div><div id="25b9f33f-c64e-48e0-ad42-3033fb72628d" style="width:31.25%" class="column"><h3 id="1410cbce-8ba4-4073-912b-4c870f4fedd2" class="">Bharani Aravindh</h3><p id="15e35e94-7ad8-8067-a88b-f86a66952116" class="">Director</p><p id="252e90de-7dd7-43ff-8ca5-2050fbb4fde9" class="">iProAT Solutions Private Limited</p></div></div><div id="15e35e94-7ad8-8033-ab50-eb87ce8819a2" class="column-list"><div id="7c5898a8-ab82-43e0-9642-e8691bb2151d" style="width:18.75%" class="column"><figure id="847b6dcd-bddf-4427-843a-848f40d36732" class="image"><a href="df7ed24f-9fb2-4f89-bfca-e0051decbfb6.png"><img style="width:222.97500610351562px" src="df7ed24f-9fb2-4f89-bfca-e0051decbfb6.png"/></a></figure></div><div id="e1769178-dcc6-4611-a7f7-2c711ef03c14" style="width:31.25%" class="column"><h3 id="d0e351c2-69a2-4e62-bdb6-276a2d1168ae" class="">Abhilash Chakkan</h3><p id="fe90b5a7-44b0-40ad-b69f-e1504a643855" class="">Enterprise Architect / Consulting Engineer</p><p id="15e35e94-7ad8-80b2-90bf-da92c59a9d55" class=""> Unisys</p></div><div id="a9c5480a-1ab2-4477-aa90-01d9b9544bf1" style="width:18.75%" class="column"><figure id="ec99bc88-2009-4647-ae68-f8f591a829c5" class="image"><a href="judge_6.jpeg"><img style="width:222.97500610351562px" src="judge_6.jpeg"/></a></figure></div><div id="61393d27-20fb-4bbb-a6fb-654b8334b14b" style="width:31.25%" class="column"><h3 id="d8b00847-3d1c-4f07-b6a2-4d72ee8e5c02" class="">Yogesh Eganandam</h3><p id="7c11937a-1b94-4c1c-bd6f-75fb6c66dae8" class="">AI/ML Solutions Engineer</p></div></div><div id="15e35e94-7ad8-80bc-a00d-d9f748fe8ee5" class="column-list"><div id="9f845dbc-ca00-479d-9350-89c9580fdee8" style="width:18.75%" class="column"><figure id="a54ff7a2-38d1-466a-84f6-3b9937c34ffd" class="image"><a href="judge_7.jpeg"><img style="width:222.97500610351562px" src="judge_7.jpeg"/></a></figure></div><div id="2ff74ee9-86d8-4213-80a7-e04f6e33c352" style="width:31.25%" class="column"><h3 id="278214a3-e6ac-4e7f-83ed-189b4e6f37f1" class="">Kumaravel N</h3><p id="f518a324-dbfe-4fd2-9a83-d3cf209e165a" class="">Technology Consultant</p></div><div id="d100b517-a3a2-4e37-acc5-780813c47f7e" style="width:18.75%" class="column"><figure id="49f13aec-85dd-4c2a-a7dd-3d9adb16f1c4" class="image"><a href="judge_8.jpeg"><img style="width:222.97500610351562px" src="judge_8.jpeg"/></a></figure></div><div id="f6ed508a-7846-4526-b803-97439ef77b50" style="width:31.25%" class="column"><h3 id="a29c8fc5-8f6e-4ecf-b1fd-7191d80769eb" class="">Magesh Rajamani</h3><p id="4c2cb8dc-1282-48ff-a823-9325df63f578" class="">Senior Solution Architect</p><p id="15e35e94-7ad8-80fe-8fff-eafa19e7385a" class=""> IBM Expert Labs</p></div></div><div id="15e35e94-7ad8-8060-bbcd-f8f543122b9c" class="column-list"><div id="d549380e-3364-4c48-9d8a-5d420edef919" style="width:18.75%" class="column"><figure id="f8e1c291-fa1d-4fd8-a6f9-29b7eab6fafb" class="image"><a href="Muthusamy_Subramanian.jpg"><img style="width:222.97500610351562px" src="Muthusamy_Subramanian.jpg"/></a></figure></div><div id="a37d9e42-2ee0-4c75-96e8-d16308907b9e" style="width:31.25%" class="column"><h3 id="f939f002-2863-415e-af85-45b8a98899a5" class="">Muthusamy Subramanian</h3><p id="f8bebfcf-f419-4898-a39d-cae20d66e9d1" class="">Senior Project Manager</p><p id="15e35e94-7ad8-8008-b9a8-fa94f8a1227b" class=""> Cognizant Technology Solutions</p></div><div id="6afadbd7-0c10-4c24-8f09-3578df760911" style="width:18.75%" class="column"><figure id="906ccfaf-bc7e-46a7-8f19-872e3d2ed613" class="image"><a href="Radhakrishnan.jpg"><img style="width:222.97500610351562px" src="Radhakrishnan.jpg"/></a></figure></div><div id="452af127-e4e2-4e1d-8607-c44506cb6439" style="width:31.25%" class="column"><h3 id="3a64cd78-c1cd-448a-bc3b-170b5c7c91d1" class="">Radhakrishnan D</h3><p id="716ebffb-73a7-4706-8e92-5f83976fc15d" class="">Senior Manager</p><p id="15e35e94-7ad8-8020-8674-e086623b194f" class=""> Cognizant Technology Solutions</p></div></div><h2 id="16035e94-7ad8-80c9-9995-d435df925813" class="block-color-blue_background">Sponsors</h2><h3 id="16035e94-7ad8-80d5-aaf9-c7d3ea5e0ec7" class="">   Title Sponsor : </h3><div id="16035e94-7ad8-8087-9ad4-d835d92bfb9f" class="column-list"><div id="16035e94-7ad8-805a-a2d4-d9d3b50523a6" style="width:25%" class="column"><figure id="71fb3be3-1f9b-4586-9668-979a056881fd" class="image"><a href="Logitech.png"><img style="width:288px" src="Logitech.png"/></a></figure></div><div id="16035e94-7ad8-8020-ab55-c86a5455da84" style="width:75%" class="column"><p id="16035e94-7ad8-8019-b670-e0e5b33fe727" class="">
+</p><p id="16035e94-7ad8-80c6-a829-d5687fbf7013" class="">
+</p></div></div><h3 id="16035e94-7ad8-80a8-8ffb-fc34e2682ea6" class=""> Gold Sponsors :</h3><div id="16035e94-7ad8-80a2-ba10-c4c6e7a2a47b" class="column-list"><div id="16035e94-7ad8-8094-a872-d337a1e4b5af" style="width:18.75%" class="column"><figure id="16035e94-7ad8-80c6-a7c8-fe4058a48ad0" class="image"><a href="4_lqjtfq.png"><img style="width:240px" src="4_lqjtfq.png"/></a></figure></div><div id="16035e94-7ad8-8030-b692-da13166748bb" style="width:21.875%" class="column"><figure id="16035e94-7ad8-80e5-8066-f4cd320ec89d" class="image"><a href="6_cic6mb.png"><img style="width:240px" src="6_cic6mb.png"/></a></figure></div><div id="16035e94-7ad8-8077-9852-ce263aed3a42" style="width:21.875%" class="column"><figure id="16035e94-7ad8-80ad-95fb-f481188ce8d2" class="image"><a href="44_rgsqli.png"><img style="width:240px" src="44_rgsqli.png"/></a></figure></div><div id="16035e94-7ad8-802b-9dd5-f7743fb4a209" style="width:37.499999999999986%" class="column"><p id="16035e94-7ad8-80af-b088-fc4b43559f10" class="">
+</p></div></div><h3 id="16035e94-7ad8-80b1-8b03-dd712e34a422" class=""> Silver Sponsors :</h3><div id="16035e94-7ad8-80ed-8c5e-d16676aa00fc" class="column-list"><div id="16035e94-7ad8-804a-90f8-dfc12ec35eb2" style="width:20%" class="column"><figure id="16035e94-7ad8-80d6-85ce-c8773b4fbec8" class="image"><a href="35_isudye.png"><img style="width:288px" src="35_isudye.png"/></a></figure></div><div id="16035e94-7ad8-807a-9235-ed1b1370f879" style="width:25%" class="column"><figure id="16035e94-7ad8-8039-96e9-e64a0ef65b86" class="image"><a href="37_q1zwzr.png"><img style="width:240px" src="37_q1zwzr.png"/></a></figure></div><div id="16035e94-7ad8-8008-9858-d1c22c5636a0" style="width:14.999999999999995%" class="column"><figure id="16035e94-7ad8-8000-9351-e9348aac2e65" class="image"><a href="loftlabs.png"><img style="width:1920px" src="loftlabs.png"/></a></figure></div><div id="16035e94-7ad8-8097-9f14-e0a8d073c7c1" style="width:20.000000000000007%" class="column"><figure id="16035e94-7ad8-80be-bc06-f0dcd65c4ce7" class="image"><a href="34_mmqmvx.png"><img style="width:240px" src="34_mmqmvx.png"/></a></figure></div><div id="16035e94-7ad8-80e1-afce-df893130b92a" style="width:20.000000000000032%" class="column"><figure id="16035e94-7ad8-80b2-8327-e03cff68d3e6" class="image"><a href="Logitech%201.png"><img style="width:1920px" src="Logitech%201.png"/></a></figure></div></div><p id="16035e94-7ad8-80f9-a08c-cf4d4fad9e28" class="">
+</p><h3 id="16035e94-7ad8-8088-ae71-e3e66313fdd0" class=""> Hackathon Partner:</h3><div id="16035e94-7ad8-80b9-b29d-c5af032af5ef" class="column-list"><div id="16035e94-7ad8-8068-b222-f2985f366403" style="width:18.75%" class="column"><figure id="16035e94-7ad8-8092-b610-de259d5a5ebe" class="image"><a href="28_ew96dv.png"><img style="width:240px" src="28_ew96dv.png"/></a></figure></div><div id="16035e94-7ad8-8075-98f8-f58dd40ceea1" style="width:81.25%" class="column"><p id="16035e94-7ad8-80b8-bfc1-da926e498dcb" class="">
+</p></div></div><h2 id="15c35e94-7ad8-8186-bc1a-e42a4c5b30ba" class="block-color-blue_background">Contact Info</h2><p id="16035e94-7ad8-80f9-94c2-c2451688a8ff" class="">Event Co-Ordinators :</p><ul id="15c35e94-7ad8-81eb-8978-d13b648499f0" class="bulleted-list"><li style="list-style-type:disc">Ajay Raj : +91 8825417048</li></ul><ul id="15c35e94-7ad8-818c-934c-fadefc3d9ed1" class="bulleted-list"><li style="list-style-type:disc">Dilip V : +91 999464536</li></ul><p id="15c35e94-7ad8-8167-9677-eb636dc4a68c" class="">
+</p><h2 id="15c35e94-7ad8-813d-b41d-f509c8058fe3" class="block-color-blue_background">Booth Station</h2><p id="15c35e94-7ad8-815c-838c-ef0a4cfd9db5" class="">
+</p><table id="15c35e94-7ad8-81a2-afec-d1b954f5df43" class="simple-table"><tbody><tr id="15c35e94-7ad8-81e1-ad98-de16d96b445a"><td id="AScX" class="" style="width:635.3000183105469px"><strong>                                                                                               Booth Stations</strong></td><td id="R|{Q" class="" style="width:691.3000183105469px"><strong>                                                                                                                                   Floor</strong></td></tr><tr id="15c35e94-7ad8-8132-9adc-d8e5018993dd"><td id="AScX" class="" style="width:635.3000183105469px"></td><td id="R|{Q" class="" style="width:691.3000183105469px"></td></tr><tr id="15c35e94-7ad8-81ad-8292-f04da8735e01"><td id="AScX" class="" style="width:635.3000183105469px"></td><td id="R|{Q" class="" style="width:691.3000183105469px"></td></tr></tbody></table><p id="15c35e94-7ad8-8177-882c-dbfb672cc5b0" class="">
+</p><h2 id="15c35e94-7ad8-819b-ac07-c9869cb5fd79" class="block-color-blue_background">Volunteers</h2><table id="15c35e94-7ad8-81ec-9736-f1ec12bf98a0" class="simple-table"><tbody><tr id="15c35e94-7ad8-810b-944c-dee4c03370ea"><td id="`OoJ" class="" style="width:639px"><strong>                                                                                                  Volunteers </strong></td><td id="jsQJ" class="" style="width:684px"><strong>                                                                                                                                   Place</strong></td></tr><tr id="15c35e94-7ad8-81bc-a04a-f7bfba4c53c5"><td id="`OoJ" class="" style="width:639px"></td><td id="jsQJ" class="" style="width:684px"></td></tr><tr id="15c35e94-7ad8-8114-9fdd-c8784a3ead11"><td id="`OoJ" class="" style="width:639px"></td><td id="jsQJ" class="" style="width:684px"></td></tr></tbody></table><h2 id="15c35e94-7ad8-81b7-a86a-fd55487066ab" class="block-color-blue_background">Wifi &amp; Password</h2><p id="15c35e94-7ad8-81de-a2b8-fa80a0b8542d" class="">
+</p><table id="15c35e94-7ad8-81cd-a80e-f7b997ab134d" class="simple-table"><tbody><tr id="15c35e94-7ad8-81a0-836b-df024a49e808"><td id="jXiG" class="" style="width:640px"><strong>                                                                                                     Wifi Network</strong></td><td id="Rjey" class="" style="width:690px"><strong>                                                                                                                                           Password</strong></td></tr><tr id="15c35e94-7ad8-8104-8d32-df279cd32ee6"><td id="jXiG" class="" style="width:640px"></td><td id="Rjey" class="" style="width:690px"></td></tr><tr id="15c35e94-7ad8-8119-9aaa-dfc297e09937"><td id="jXiG" class="" style="width:640px"></td><td id="Rjey" class="" style="width:690px"></td></tr></tbody></table><p id="15c35e94-7ad8-812d-9afe-e9d44edab4dc" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="15c35e94-7ad8-818e-b603-f0ae4f9f29cb"><div style="font-size:1.5em"><span class="icon">⭐</span></div><div style="width:100%"><strong>Rules and Guidelines</strong> <strong>:</strong><ul id="15c35e94-7ad8-8180-8fc7-e643c871743e" class="bulleted-list"><li style="list-style-type:disc"><strong>Code of Conduct:</strong> All participants must adhere to the event&#x27;s code of conduct</li></ul><ul id="15c35e94-7ad8-811e-a225-e3e848611e90" class="bulleted-list"><li style="list-style-type:disc"><strong>Original Work:</strong> All submissions must be original and created during the hackathon</li></ul><ul id="15c35e94-7ad8-8134-924f-d42b8f688491" class="bulleted-list"><li style="list-style-type:disc"><strong>Intellectual Property:</strong> Participants retain ownership of their projects</li></ul><ul id="15c35e94-7ad8-81f1-85df-d40c246cd76c" class="bulleted-list"><li style="list-style-type:disc"><strong>Judging Criteria:</strong> Projects will be evaluated on innovation, technical complexity, and presentation</li></ul></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
